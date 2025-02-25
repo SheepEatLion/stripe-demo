@@ -51,7 +51,10 @@ public class DemoService {
 
       PaymentIntent paymentIntent = PaymentIntent.create(params);
 
-      return Result.builder().msg(paymentIntent.toJson()).build();
+      // check your json response in Stripe Dashboard. or use this.
+      // return Result.builder().msg(paymentIntent.toJson()).build();
+
+      return Result.builder().msg(paymentIntent.getStatus()).build();
     } catch (Exception e) {
       e.printStackTrace();
       throw new IllegalAccessException(e.getMessage());
