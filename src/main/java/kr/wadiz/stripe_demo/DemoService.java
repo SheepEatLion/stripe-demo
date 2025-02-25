@@ -71,7 +71,7 @@ public class DemoService {
     try {
       PaymentIntent paymentIntent = PaymentIntent.retrieve(paymentIntentId);
       String status = paymentIntent.getStatus();
-      return Result.builder().msg("{\"status\":\"" + status + "\"}").build();
+      return Result.builder().msg(status).build();
 
     } catch (Exception e) {
       e.printStackTrace();

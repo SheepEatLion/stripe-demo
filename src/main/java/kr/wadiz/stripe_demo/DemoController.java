@@ -53,7 +53,7 @@ public class DemoController {
   public ResponseEntity<String> getPaymentIntentStatus(@PathVariable("paymentIntentId") String paymentIntentId) {
     try {
       Result result = demoService.getPaymentIntentStatus(paymentIntentId);
-      return ResponseEntity.ok(result.msg());
+      return ResponseEntity.ok("{\"status\":\"" + result.msg() + "\"}");
 
     } catch (IllegalAccessException e) {
       return ResponseEntity.status(500).body("{\"error\":\"" + e.getMessage() + "\"}");
@@ -64,7 +64,7 @@ public class DemoController {
   public ResponseEntity<String> createSetupIntent() {
     try {
       Result result = demoService.createSetupIntent();
-      return ResponseEntity.ok(result.msg());
+      return ResponseEntity.ok("{\"clientSecret\":\"" + result.msg() + "\"}");
 
     } catch (IllegalAccessException e) {
       return ResponseEntity.status(500).body("{\"error\":\"" + e.getMessage() + "\"}");
