@@ -3,8 +3,11 @@ package kr.wadiz.stripe_demo;
 import com.stripe.model.Customer;
 import com.stripe.model.PaymentIntent;
 import com.stripe.model.PaymentMethod;
+import com.stripe.model.SetupIntent;
 import com.stripe.param.PaymentIntentCreateParams;
 import com.stripe.param.PaymentMethodAttachParams;
+import com.stripe.param.SetupIntentCreateParams;
+import com.stripe.param.SetupIntentCreateParams.Usage;
 import java.util.Map;
 import kr.wadiz.stripe_demo.model.ProcessPaymentRequest;
 import kr.wadiz.stripe_demo.model.Result;
@@ -70,6 +73,22 @@ public class DemoService {
       String status = paymentIntent.getStatus();
       return Result.builder().msg("{\"status\":\"" + status + "\"}").build();
 
+    } catch (Exception e) {
+      e.printStackTrace();
+      throw new IllegalAccessException(e.getMessage());
+    }
+  }
+
+  public Result createSetupIntent() throws IllegalAccessException {
+    try {
+      SetupIntentCreateParams params = SetupIntentCreateParams.builder()
+          .addPaymentMethodType("card")
+          .setUsage(Usage.OFF_SESSION)
+          .build();
+
+      SetupIntent setupIntent = SetupIntent.create(params);
+
+      return Result.builder().msg(setupIntent.getClientSecret()).build();
     } catch (Exception e) {
       e.printStackTrace();
       throw new IllegalAccessException(e.getMessage());
