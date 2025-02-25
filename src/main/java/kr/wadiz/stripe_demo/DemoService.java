@@ -60,4 +60,16 @@ public class DemoService {
       throw new IllegalAccessException(e.getMessage());
     }
   }
+
+  public Result getPaymentIntentStatus(String paymentIntentId) throws IllegalAccessException{
+    try {
+      PaymentIntent paymentIntent = PaymentIntent.retrieve(paymentIntentId);
+      String status = paymentIntent.getStatus();
+      return Result.builder().msg("{\"status\":\"" + status + "\"}").build();
+
+    } catch (Exception e) {
+      e.printStackTrace();
+      throw new IllegalAccessException(e.getMessage());
+    }
+  }
 }

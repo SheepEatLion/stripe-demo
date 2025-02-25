@@ -6,6 +6,8 @@ import static org.springframework.http.HttpStatus.NON_AUTHORITATIVE_INFORMATION;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,9 +41,19 @@ public class DemoController {
       }
       return ResponseEntity.status(NON_AUTHORITATIVE_INFORMATION).body(result.msg());
 
-    } catch (Exception e) {
-      e.printStackTrace();
+    } catch (IllegalAccessException e) {
       return ResponseEntity.status(INTERNAL_SERVER_ERROR).body("{\"error\":\"" + e.getMessage() + "\"}");
+    }
+  }
+
+  @GetMapping("/payment-intent-status/{paymentIntentId}")
+  public ResponseEntity<String> getPaymentIntentStatus(@PathVariable("paymentIntentId") String paymentIntentId) {
+    try {
+      Result result = demoService.getPaymentIntentStatus(paymentIntentId);
+      return ResponseEntity.ok(result.msg());
+
+    } catch (IllegalAccessException e) {
+      return ResponseEntity.status(500).body("{\"error\":\"" + e.getMessage() + "\"}");
     }
   }
 }
