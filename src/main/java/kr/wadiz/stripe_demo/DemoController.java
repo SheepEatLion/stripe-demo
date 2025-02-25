@@ -4,6 +4,9 @@ import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
 import static org.springframework.http.HttpStatus.NON_AUTHORITATIVE_INFORMATION;
 
 import jakarta.validation.Valid;
+import kr.wadiz.stripe_demo.model.ProcessPaymentRequest;
+import kr.wadiz.stripe_demo.model.Result;
+import kr.wadiz.stripe_demo.model.SavePaymentMethodRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

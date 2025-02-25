@@ -1,4 +1,4 @@
-package kr.wadiz.stripe_demo;
+package kr.wadiz.stripe_demo.model;
 
 
 import lombok.Builder;

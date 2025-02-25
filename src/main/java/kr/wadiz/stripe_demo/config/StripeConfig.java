@@ -1,4 +1,4 @@
-package kr.wadiz.stripe_demo;
+package kr.wadiz.stripe_demo.config;
 
 import com.stripe.Stripe;
 import jakarta.annotation.PostConstruct;
