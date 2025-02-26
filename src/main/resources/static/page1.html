@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stripe Payment Scenario With Payment Method API.</title>
+  <script src="https://js.stripe.com/v3/"></script>
+  <script src="/js/page1.js"></script>
+  <style>
+    #card-element {
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    #payment-form {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+<h2>Stripe Payment - Page 1</h2>
+<form id="payment-form">
+  <div id="card-element">
+    <!-- Stripe Elements will be inserted here. -->
+  </div>
+  <button type="submit">Pay</button>
+</form>
+</body>
+</html>

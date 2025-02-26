@@ -12,8 +12,10 @@ import java.util.Map;
 import kr.wadiz.stripe_demo.model.ProcessPaymentRequest;
 import kr.wadiz.stripe_demo.model.Result;
 import kr.wadiz.stripe_demo.model.SavePaymentMethodRequest;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
+@Log4j2
 @Service
 public class DemoService {
 
@@ -40,6 +42,7 @@ public class DemoService {
 
   public Result processPayment(ProcessPaymentRequest request) throws IllegalAccessException{
     try {
+
       String customerId = request.customerId();
       String paymentMethodId = request.paymentMethodId();
       int amount = request.amount();
@@ -83,7 +86,9 @@ public class DemoService {
 
       SetupIntent setupIntent = SetupIntent.create(params);
 
-      return Result.builder().msg(setupIntent.getClientSecret()).build();
+      log.info(setupIntent.toJson());
+
+      return Result.builder().msg(setupIntent.toJson()).build();
     } catch (Exception e) {
       e.printStackTrace();
       throw new IllegalAccessException(e.getMessage());

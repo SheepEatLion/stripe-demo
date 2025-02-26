@@ -64,7 +64,7 @@ public class DemoController {
   public ResponseEntity<String> createSetupIntent() {
     try {
       Result result = demoService.createSetupIntent();
-      return ResponseEntity.ok("{\"clientSecret\":\"" + result.msg() + "\"}");
+      return ResponseEntity.ok(result.msg());
 
     } catch (IllegalAccessException e) {
       return ResponseEntity.status(500).body("{\"error\":\"" + e.getMessage() + "\"}");

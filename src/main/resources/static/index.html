@@ -3,33 +3,24 @@
 <head>
   <title>Stripe Payment</title>
   <script src="https://js.stripe.com/v3/"></script>
-  <script src="/js/payment.js"></script>
   <style>
-    /* Stripe Elements 스타일 설정 */
-    #card-element {
-      border: 1px solid #ccc;
-      padding: 10px;
-      border-radius: 5px;
-    }
-    #payment-form {
+    #navigation {
       max-width: 400px;
       margin: 0 auto;
+      text-align: center;
+    }
+    #navigation button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
     }
   </style>
 </head>
 <body>
-  <h1>Save Payment Method</h1>
-  <!--<form id="payment-form">
-    <div id="card-element">
-
-    </div>
-    <button type="submit">Pay</button>
-  </form> -->
-
-  <h1>Setup Intent</h1>
-  <form id="setup-form">
-    <div id="card-element"> </div>
-    <button type="submit">Save Payment Method</button>
-  </form>
+<h2>Stripe Payment Navigation</h2>
+<div id="navigation">
+  <button onclick="location.href='page1.html'">Go to Page 1</button>
+  <button onclick="location.href='page2.html'">Go to Page 2</button>
+</div>
 </body>
 </html>

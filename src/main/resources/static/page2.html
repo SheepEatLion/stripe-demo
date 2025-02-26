@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stripe Payment Scenario With Setup Intent API.</title>
+  <script src="https://js.stripe.com/v3/"></script>
+  <script src="/js/page2.js"></script>
+  <style>
+    #card-element {
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    #setup-form {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+<h2>Stripe Setup Intent - Page 2</h2>
+<form id="setup-form">
+  <div id="card-element">
+    <!-- Stripe Elements will be inserted here. -->
+  </div>
+  <button type="submit">Save Payment Method</button>
+</form>
+</body>
+</html>
